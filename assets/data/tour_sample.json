@@ -1,0 +1,72 @@
+[
+    {
+      "tour_id": "t001",
+      "tour_name": "東京観光ツアー",
+      "tour_description": "東京の主要な観光スポットを巡る1日ツアーです。",
+      "num_of_nights": 1,
+      "price": 15000
+    },
+    {
+        "tour_id": "t002",
+        "tour_name": "京都歴史探訪ツアー",
+        "tour_description": "京都の歴史的な名所を訪れる2日間のツアーです。",
+        "num_of_nights": 2,
+        "price": 30000
+    },
+    {
+        "tour_id": "t003",
+        "tour_name": "北海道自然満喫ツアー",
+        "tour_description": "北海道の美しい自然を楽しむ3日間のツアーです。",
+        "num_of_nights": 3,
+        "price": 45000
+    },
+    {
+        "tour_id": "t004",
+        "tour_name": "沖縄ビーチリゾートツアー",
+        "tour_description": "沖縄の美しいビーチでリラックスする4日間のツアーです。",
+        "num_of_nights": 4,
+        "price": 60000
+    },
+    {
+        "tour_id": "t005",
+        "tour_name": "広島平和記念ツアー",
+        "tour_description": "広島の平和記念公園と原爆ドームを訪れる1日ツアーです。",
+        "num_of_nights": 1,
+        "price": 12000
+    },
+    {
+        "tour_id": "t006",
+        "tour_name": "奈良古都巡りツアー",
+        "tour_description": "奈良の古都を巡る1日ツアーです。",
+        "num_of_nights": 1,
+        "price": 13000
+    },
+    {
+        "tour_id": "t007",
+        "tour_name": "福岡グルメツアー",
+        "tour_description": "福岡の美味しいグルメを楽しむ1日ツアーです。",
+        "num_of_nights": 1,
+        "price": 14000
+    },
+    {
+        "tour_id": "t008",
+        "tour_name": "長崎歴史と文化ツアー",
+        "tour_description": "長崎の歴史と文化を学ぶ2日間のツアーです。",
+        "num_of_nights": 2,
+        "price": 28000
+    },
+    {
+        "tour_id": "t009",
+        "tour_name": "仙台自然と温泉ツアー",
+        "tour_description": "仙台の自然と温泉を楽しむ2日間のツアーです。",
+        "num_of_nights": 2,
+        "price": 32000
+    },
+    {
+        "tour_id": "t010",
+        "tour_name": "金沢伝統工芸体験ツアー",
+        "tour_description": "金沢で伝統工芸を体験する1日ツアーです。",
+        "num_of_nights": 1,
+        "price": 16000
+    }
+]

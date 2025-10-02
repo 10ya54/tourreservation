@@ -1,0 +1,13 @@
+{
+    "customer_id": "c002",
+    "last_name": "山田",
+    "first_name": "太郎",
+    "last_name_reading": "ヤマダ",
+    "first_name_reading": "タロウ",
+    "birthday": "1980-01-01",
+    "email": "Taro.Yamada@email.com",
+    "password": "password",
+    "tel": "090-1234-5678",
+    "zip": "123-4567",
+    "address": "東京都新宿区西新宿2-8-1"
+}
