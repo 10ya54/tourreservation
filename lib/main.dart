@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tourreservation/routing/router.dart';
 
 void main() async {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: MyApp()));
 
   // 画面を縦向きに固定する
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
@@ -73,7 +74,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
       title: 'Flutter Tour Reservation',
       routerConfig: router,
-      supportedLocales: [Locale('ja', 'JP'), Locale('en', 'US')],
+      supportedLocales: [Locale('ja', 'JP')],
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
