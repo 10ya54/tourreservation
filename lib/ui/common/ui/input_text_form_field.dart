@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
-import 'package:tourreservation/ui/common/validators/widget_manager.dart';
 
 /// 入力テキストフィールド
 class InputTextFormField extends StatelessWidget {
-  final String keyText;
+  final String formText;
   final String labelText;
-  final WidgetManager widgetManager;
   final bool isRequired;
   final bool isObscure;
   final TextInputType keyboardType;
   final List<String? Function(String?)> validators;
+  final Function(String) onChanged;
+  final FocusNode? focusNode;
 
   const InputTextFormField({
     super.key,
-    required this.keyText,
+    required this.formText,
     required this.labelText,
-    required this.widgetManager,
     this.isRequired = false,
     this.isObscure = false,
     this.keyboardType = TextInputType.text,
     this.validators = const [],
+    required this.onChanged,
+    this.focusNode,
   });
 
   @override
@@ -54,9 +55,8 @@ class InputTextFormField extends StatelessWidget {
           ],
         ),
         TextFormField(
-          key: widgetManager.createFormKey(keyText),
-          controller: widgetManager.createController(keyText),
-          focusNode: widgetManager.createFocusNode(keyText),
+          initialValue: formText,
+          focusNode: focusNode,
           obscureText: isObscure,
           decoration: InputDecoration(
             floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -67,7 +67,9 @@ class InputTextFormField extends StatelessWidget {
             labelText: labelText,
           ),
           keyboardType: keyboardType,
+          autofocus: true,
           autovalidateMode: AutovalidateMode.onUserInteraction,
+          onChanged: onChanged,
           validator: (value) {
             if (!isRequired && (value == null || value.isEmpty)) {
               return null;

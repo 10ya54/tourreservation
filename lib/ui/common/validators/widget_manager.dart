@@ -39,8 +39,9 @@ class WidgetManager {
   }
 }
 
-final widgetManagerProvider = Provider.autoDispose<WidgetManager>((ref) {
-  final manager = WidgetManager();
-  ref.onDispose(manager.dispose);
-  return manager;
-});
+final widgetManagerProvider = Provider.autoDispose
+    .family<WidgetManager, String>((ref, screenKey) {
+      final manager = WidgetManager();
+      ref.onDispose(manager.dispose);
+      return manager;
+    });

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:tourreservation/ui/common/ui/input_text_form_field.dart';
 import 'package:tourreservation/ui/common/validators/widget_manager.dart';
 import 'package:tourreservation/ui/login/form/login_form.dart';
 import 'package:tourreservation/ui/login/view_model/login_viewmodel.dart';
@@ -14,9 +12,9 @@ class LoginScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final formKey = GlobalKey<FormState>();
+    final loginFormKey = GlobalKey<FormState>();
     final loginStateNotifier = ref.read(loginViewModelProvider.notifier);
-    final widgetManager = ref.watch(widgetManagerProvider);
+    final widgetManager = ref.watch(widgetManagerProvider('login'));
 
     return Scaffold(
       appBar: AppBar(
@@ -49,41 +47,41 @@ class LoginScreen extends ConsumerWidget {
                       child: Column(
                         children: [
                           Form(
-                            key: formKey,
+                            key: loginFormKey,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                InputTextFormField(
-                                  keyText: 'userId',
-                                  labelText: 'ユーザID',
-                                  widgetManager: widgetManager,
-                                  isRequired: true,
-                                  isObscure: false,
-                                  keyboardType: TextInputType.text,
-                                  validators: [
-                                    FormBuilderValidators.required(),
-                                    FormBuilderValidators.match(
-                                      RegExp(r'^[a-zA-Z0-9]+$'),
-                                      errorText: '半角英数字で入力してください',
-                                    ),
-                                  ],
-                                ),
+                                // InputTextFormField(
+                                //   keyText: 'userId',
+                                //   labelText: 'ユーザID',
+                                //   widgetManager: widgetManager,
+                                //   isRequired: true,
+                                //   isObscure: false,
+                                //   keyboardType: TextInputType.text,
+                                //   validators: [
+                                //     FormBuilderValidators.required(),
+                                //     FormBuilderValidators.match(
+                                //       RegExp(r'^[a-zA-Z0-9]+$'),
+                                //       errorText: '半角英数字で入力してください',
+                                //     ),
+                                //   ],
+                                // ),
                                 const SizedBox(height: 20),
-                                InputTextFormField(
-                                  keyText: 'password',
-                                  labelText: 'パスワード',
-                                  widgetManager: widgetManager,
-                                  isRequired: true,
-                                  isObscure: true,
-                                  keyboardType: TextInputType.visiblePassword,
-                                  validators: [
-                                    FormBuilderValidators.required(),
-                                    FormBuilderValidators.minLength(
-                                      6,
-                                      errorText: '6文字以上で入力してください',
-                                    ),
-                                  ],
-                                ),
+                                // InputTextFormField(
+                                //   keyText: 'password',
+                                //   labelText: 'パスワード',
+                                //   widgetManager: widgetManager,
+                                //   isRequired: true,
+                                //   isObscure: true,
+                                //   keyboardType: TextInputType.visiblePassword,
+                                //   validators: [
+                                //     FormBuilderValidators.required(),
+                                //     FormBuilderValidators.minLength(
+                                //       6,
+                                //       errorText: '6文字以上で入力してください',
+                                //     ),
+                                //   ],
+                                // ),
                               ],
                             ),
                           ),
@@ -92,7 +90,7 @@ class LoginScreen extends ConsumerWidget {
                             width: double.infinity,
                             child: FilledButton(
                               onPressed: () async {
-                                if (!formKey.currentState!.validate()) {
+                                if (!loginFormKey.currentState!.validate()) {
                                   return;
                                 }
                                 try {
@@ -155,7 +153,7 @@ class LoginScreen extends ConsumerWidget {
                           ),
                           const SizedBox(height: 10),
                           TextButton(
-                            onPressed: () => context.push(Routes.login),
+                            onPressed: () => context.push(Routes.registration),
                             child: Text('新規登録はこちら'),
                           ),
                         ],
